@@ -1,0 +1,44 @@
+#h1{
+	width: 100%;
+	height: 200px;
+	/*background-color: red;*/
+	float: left;
+}
+#h2{
+	width: 100%;
+	height: 50px;
+	/*background-color: blue;*/
+	float: left;
+}
+#content{
+	width: 100%;
+	height: 1200px;
+	/*background-color: red;*/
+	float: left;
+}
+#h4{
+	width: 100%;
+	height: 300px;
+	/*background-color: blue;*/
+	float: left;
+}
+#inform_products{
+	width: 100%;
+	float: left;
+}
+#inform_sum{
+	width: 100%;
+	float: left;	
+	height: 100px;
+}
+
+#div_send{
+	width: 100%;
+	float: left;
+}
+
+#gui_don_hang{
+	float: left;
+	position: absolute;
+    left: 30%;
+}
