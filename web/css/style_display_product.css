@@ -24,14 +24,9 @@
 }
 
 #set_img{
-	width: 50%;
-	height: 600px;
-	background-color: yellow;
-	float: left;
-}
-
-#image_product{
-	padding: 50px 50px 50px 50px;
+    width: 50%;
+    height: 600px;
+    float: left;
 }
 
 #set_event{

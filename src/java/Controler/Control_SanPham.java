@@ -20,8 +20,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class Control_SanPham extends HttpServlet {
 
-    
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -34,10 +32,20 @@ public class Control_SanPham extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id_index = request.getParameter("button_image");
-        System.out.println("id index : " + id_index);
-        request.getRequestDispatcher("/display_product.jsp").forward(request, response);
-//        ArrayList<MatHang> list_mh = (ArrayList<MatHang>) request.getAttribute("get_all_product");
+        
+        String button_image = (String) request.getParameter("button_image");
+//        System.out.println("button_image : " + button_image);
+        if (button_image!=null) {
+            ArrayList<MatHang> list_mh = (ArrayList<MatHang>) request.getAttribute("get_all_product");
+            System.out.println("size of list mat hang: "+ list_mh.size());
+            int index = Integer.parseInt(button_image.trim());
+            System.out.println("button_image : " + index);
+            MatHang mh = list_mh.get(index);
+            request.setAttribute("display_san_pham", mh);
+            request.getRequestDispatcher("/display_product.jsp").forward(request, response);
+        }
+        
+        
 //        if (id_index!=null) {
 //            int index = Integer.parseInt(id_index.trim());
 //            MatHang mh = list_mh.get(index);

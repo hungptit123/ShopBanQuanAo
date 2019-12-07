@@ -17,11 +17,11 @@
 <div id="content">
 	<!-- Hien thi hinh anh cua san pham mua -->
         <%
-            MatHang mh = new MatHang(1, "ao", 100, 100, 200, "Do", "M", "acv", "abc");
-//            MatHang mh = (MatHang) request.getAttribute("display_san_pham");
+            MatHang mh = (MatHang) request.getAttribute("display_san_pham");
         %>
-	<div id="set_img">
-<!--		<img id="image_product" src="/home/hunglv/Pictures/1.jpg">-->
+        <div id="set_img" style="width: 50%">
+            <image src ="<%= mh.getUrl() %>" 
+                   style="width: 100%; height: 600px" >
 	</div>
 	<!-- Cac thong thin cua san pham va chon mua -->
 	<div id="set_event">
@@ -29,25 +29,27 @@
 		<div id="inform_product">
 			<h1 id="name_product" style="color: red;"><%= mh.getTen() %></h1>
                         <h2 id="price" style="color: blue;">Price: <%= mh.getGiaBan() %> </h2>
-			<p id="discrible">Mota: </p>
+			<p id="discrible">Mo ta: <%= mh.getMoTa() %></p>
 			
 		</div>
 		<!-- chon size va so luong sann pham mua -->
 		<div id="option">
                     <select name="Size" style="width: 40%; float: left;">
-                            <option value="2"></option>
+                            <option value="<%= mh.getKichCo() %>"> <%= mh.getKichCo() %> </option>
                     </select>
                     <select name="So Luong" style="width: 40%; float: right;">
-                            <option value="1">1</option>
+                        <% for (int i = 1; i <= 10; i++) {%>
+                            <option value="<%= i %>"> <%= i %> </option>
+                        <%}%>
                     </select>
 		</div>
 
 		<!-- button click mua hang -->
 		<div id="click_event">
-			<form action="" method="POST">
-				<input type="submit" name="" id="dang_ki_mua" value="Dang Ky Mua"/>
-				<input type="submit" name="" id="them_gio_hang" value="Them Gio Hang"/>
-			</form>
+                    <form action="MainActivity" method="GET">
+                        <input type="submit" name="click_button_display_product" id="dang_ki_mua" value="Dang Ky Mua"/>
+                        <input type="submit" name="click_button_display_product" id="them_gio_hang" value="Them Gio Hang"/>
+                    </form>
 		</div>
 	</div>
 </div>

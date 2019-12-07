@@ -14,7 +14,7 @@
 <body>
 <div id="h1"></div>
 <div id="div_login">
-    <form action="Control_Login" method="POST">
+    <form action="MainActivity" method="POST">
 	<div id="div_text">
             <div id="div_username">
                     <label id="label_username">Username: </label>

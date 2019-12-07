@@ -61,8 +61,10 @@
                 </ul>
             </div>
             <div class="search">
-                    <input type="text">
-                    <input type="button" value="Tìm" name="Find">
+                <form action="MainActivity" method="GET">
+                    <input type="text" name="txt_name_product"/>
+                    <input type="submit" value="Tìm" name="find_mat_hang_theo_ten"/>
+                </form>
             </div>
         </div>
         </div>
@@ -111,20 +113,21 @@
           function currentSlide(n) {
             showSlides(slideIndex = n);
           }
-          
+            
         </script>
         
     <!---------ảnh sản phẩm------->
     <div id="content_1" style="width: 100%">
             <div class="hang" style="overflow-y: scroll; margin-top: 200px">
-                <form action="Control_SanPham" method="GET">
+                <form action="MainActivity" method="GET">
                     <% for (int i = 0; i < list_mh.size(); i++) {%>
                         
                         <div style="width: 23%; height: 400px; padding: 10px 10px; float: left">
-                            <input type="image" src= "<%= list_mh.get(i).getUrl()%>"
+                            <input type="submit"
                                      alt="ảnh sp" class="anh"
-                                     style="width: 100%; height: 290px;" 
-                                     name="button_image" value=" <%= i %> "/>
+                                     style="width: 100%; height: 290px; background-image: url(<%= list_mh.get(i).getUrl()%>);
+                                     font-size: 0px" 
+                                     name="button_image" value="<%= i %>"/>
                               <p style="width: 100%; height: 10px; float: left">
                                   <%= list_mh.get(i).getTen() %>
                               </p>
@@ -137,6 +140,7 @@
                         </div>
 
                     <%}%>
+                    
                     </div>
                 </form>
             <!--</div>-->
