@@ -148,8 +148,14 @@ public class MainActivity extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html");
-        
-        
+        String act_login = request.getParameter("act_login");
+        if (act_login!= null) {
+            if (act_login.compareTo("Login")==0) {
+                ArrayList<HoaDonChiTiet> list_hdct =null;
+                request.setAttribute("list_hdct", list_hdct);
+                request.getRequestDispatcher("/frame_buy.jsp").forward(request, response);
+            } 
+        }
     }
 
     /**
